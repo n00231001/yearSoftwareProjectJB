@@ -22,8 +22,11 @@ class EnergyInfoController extends Controller
      */
     public function create()
     {
-        //
-    }
+            return redirect()->route('energyInfo.index')->with('error', 'access denied');
+            return view('energyInfo.create');
+        }
+        
+    
 
     /**
      * Store a newly created resource in storage.

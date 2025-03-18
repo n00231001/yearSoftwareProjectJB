@@ -6,5 +6,5 @@
 
         <p class="text-gray-600">{{{ $OilUsage}}}</p>
         <p class="text-gray-800 mt-4">{{$GasUsage}}</p>
-        <img src="{{asset( 'images/guitar/' .$image)}}" alt="{{$type}}">
+        <img src="{{asset( 'images/' .$image)}}" alt="{{$type}}">
 </div>

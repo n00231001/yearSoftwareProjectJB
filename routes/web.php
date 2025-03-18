@@ -18,6 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/energyInfo', [energyInfoController::class, 'index'])->name('energyInfo.index');
+    Route::get('/energyInfo/create', [energyInfoController::class, 'create'])->name('energyInfo.create');
     Route::get('/energyInfo', [energyInfoController::class, 'edit'])->name('energyInfo.edit');
     Route::patch('/energyInfo', [energyInfoController::class, 'update'])->name('energyInfo.update');
     Route::delete('/energyInfo', [energyInfoController::class, 'destroy'])->name('energyInfo.destroy');
