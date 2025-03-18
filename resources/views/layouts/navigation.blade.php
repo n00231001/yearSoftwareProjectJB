@@ -17,7 +17,7 @@
                         {{ __('Home') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashbaord')">
+                    <x-nav-link :href="route('energyInfo.index')" :active="request()->routeIs('energyInfo.index')">
                         {{ __('Enter data') }}
                     </x-nav-link>
 
