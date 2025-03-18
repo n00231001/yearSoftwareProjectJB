@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('energy_infos', function (Blueprint $table) {
+        Schema::create('energyInfo', function (Blueprint $table) {
             $table->id();
             $table->foreignId("property_id");
             $table->integer("ElecUsage");
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('energy_infos');
+        Schema::dropIfExists('energyInfo');
     }
 };

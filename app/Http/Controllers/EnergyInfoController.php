@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\energyInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EnergyInfoController extends Controller
 {
@@ -12,7 +13,8 @@ class EnergyInfoController extends Controller
      */
     public function index()
     {
-        //
+        $energyInfo = energyInfo::all();
+        return view('energyInfo.index', compact('energyInfo'));
     }
 
     /**
