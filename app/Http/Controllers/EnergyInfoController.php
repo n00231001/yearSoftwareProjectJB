@@ -22,7 +22,7 @@ class EnergyInfoController extends Controller
      */
     public function create()
     {
-            return redirect()->route('energyInfo.index')->with('error', 'access denied');
+            //return redirect()->route('energyInfo.create')->with('error', 'access denied');
             return view('energyInfo.create');
         }
         
@@ -33,7 +33,18 @@ class EnergyInfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'electrictyUsage' => 'required|integer',
+            'oilUsage' => 'required|integer',
+            'gasUsage' => 'required|integer'
+        ]);
+        energyInfo::create([
+            'electrictyUsage' => 'required|integer',
+            'oilUsage' => 'required|integer',
+            'gasUsage' => 'required|integer'
+        ]);
+        
+        return to_route('dashboard.index')->width('success','data added successfully');
     }
 
     /**
