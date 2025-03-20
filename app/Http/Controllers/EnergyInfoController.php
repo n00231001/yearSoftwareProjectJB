@@ -38,13 +38,14 @@ class EnergyInfoController extends Controller
             'oilUsage' => 'required|integer',
             'gasUsage' => 'required|integer'
         ]);
+
         energyInfo::create([
-            'electrictyUsage' => 'required|integer',
-            'oilUsage' => 'required|integer',
-            'gasUsage' => 'required|integer'
+            'electrictyUsage' => $request->input('electrictyUsage'),
+            'oilUsage' => $request->input('oilUsage'),
+            'gasUsage' => $request->input('gasUsage')
         ]);
-        
-        return to_route('dashboard.index')->width('success','data added successfully');
+
+        return redirect()->route('dashboard')->with('success', 'Data added successfully');
     }
 
     /**

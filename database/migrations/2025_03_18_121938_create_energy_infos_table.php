@@ -1,34 +1,33 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateEnergyInfosTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('energyInfo', function (Blueprint $table) {
+        Schema::create('energy_infos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("property_id");
-            $table->integer("ElecUsage");
-            $table->integer("oilUsage");
-            $table->integer("gasUsage");
-            $table->integer("ElecConversion");
-            $table->integer("oilConversion");
-            $table->integer("gasConversion");
+            $table->integer('electrictyUsage');
+            $table->integer('oilUsage');
+            $table->integer('gasUsage');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('energyInfo');
+        Schema::dropIfExists('energy_infos');
     }
-};
+}

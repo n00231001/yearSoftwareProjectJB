@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class energyInfo extends Model
 {
     use hasfactory;
+
+    protected $fillable = [
+        'electrictyUsage',
+        'oilUsage',
+        'gasUsage'
+    ];
 }
