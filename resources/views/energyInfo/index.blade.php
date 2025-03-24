@@ -1,3 +1,11 @@
+{{-- @foreach ($energyInfo as $energyInfos)
+<a href=" {{ route('energyInfo.show', $energyInfo) }}">
+    <x-energyInfo-card
+        :electricityUsage="$energyInfo->electricityUsage"
+    />
+</a>
+@endforeach --}}
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -5,22 +13,38 @@
         </h2>
     <x-slot>
 
-    <div class="py-12">
-        <div class="py-12">
-            <div class="max-w-7x1 mx-auto sm:px-6 lg:px-8 ">
-                <div class="p-6 text-gray-900">
-                    <h3 class="font-semibold text-lg mb-4">List of energyInfo</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        @foreach($energyInfo as $energyInfo)
-                        <x-energyInfo
-                            :dd="$energyInfo->dd"
-                        />
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <script>
+        var data1 = [
+            {
+                domain: { x: [0, 1], y: [0, 1] },
+                value: $electricityUsage,
+                title: { text: "Gauge 1" },
+                type: "indicator",
+                mode: "gauge+number",
+                delta: { reference: 400 },
+                gauge: { axis: { range: [null, 500] }, bar: { color: "66D575", thickness: 0.5 } }
+            }
+        ];
+
+        var layout1 = { 
+            width: 550, 
+            height: 400,
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            images: [
+                {
+                    source: "{{ asset('images/bolt-solid.svg') }}",
+                    x: 0.5,
+                    y: 0.5,
+                    sizex: 0.2,
+                    sizey: 0.2,
+                    xanchor: "center",
+                    yanchor: "middle"
+                }
+            ]
+        };
+        Plotly.newPlot('myGaugeChart1', data1, layout1);
+    </script>
 </x-app-layout>
 
 

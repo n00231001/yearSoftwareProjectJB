@@ -53,7 +53,7 @@ class EnergyInfoController extends Controller
      */
     public function show(energyInfo $energyInfo)
     {
-        //
+        return view('energyInfo.show')->with('energyInfo', $energyInfo);
     }
 
     /**

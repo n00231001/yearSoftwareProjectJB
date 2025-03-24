@@ -11,7 +11,7 @@ class DashboardController extends Controller
     {
         // Assuming you want to get the latest electricity usage
         $latestEnergyInfo = energyInfo::latest()->first();
-        $electricityUsage = $latestEnergyInfo ? $latestEnergyInfo->electrictyUsage : 0;
+        $electricityUsage = $latestEnergyInfo ? $latestEnergyInfo->electricityUsage : 0;
 
         return view('dashboard', compact('electricityUsage'));
     }
