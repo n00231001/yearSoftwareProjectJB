@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\energyInfo;
+use App\Models\EnergyInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        // Assuming you want to get the latest electricity usage
-        $latestEnergyInfo = energyInfo::latest()->first();
-        $electricityUsage = $latestEnergyInfo ? $latestEnergyInfo->electricityUsage : 0;
+
+        $energyData = EnergyInfo::latest()->first();
+
+        $electricityUsage = $energyData->electrictyUsage;
 
         return view('dashboard', compact('electricityUsage'));
     }
 }
+ 

@@ -14,13 +14,13 @@
     ?>
 
     <div class="py-12 bg-gray">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-10 rounded-lg" style="rounded-lg">
-            <div class="bg-gray overflow-hidden shadow-sm sm:rounded-lg shadow">
-                <div class="p-6 text-gray-900 bg-gray shadow-lg">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-10 rounded-lg" style="background-color: #e1e2e3; rounded-lg">
+            <div class="bg-gray overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 bg-gray border: 4px solid black; padding: 10px; rounded-lg ">
                     {{ __("You're logged in!") }}
                     
                     <!-- Container for the gauges -->
-                    <div style="display: flex; justify-content: space-between; background-color: #F3F3F4" class="shadow rounded-lg">
+                    <div style="display: flex; justify-content: space-between; border: 4px solid black; padding: 10px; rounded-lg">
                         <!-- First Gauge -->
                         <div id="myGaugeChart1" style="width:600px;height:400px;position:relative;"></div>
                         <!-- Second Gauge -->
@@ -28,11 +28,11 @@
                     </div>
                     <br>
                     <!-- Bootstrap row for cards -->
-                    <div class="row bg-gray ">
+                    <div class="row bg-gray border-primary rounded-lg">
                         <br>
                         <!-- first card -->
                         <div class="col-md-6">
-                            <div class="card text-dark mb-3 shadow" style="background-color: #F3F3F4">
+                            <div class="card text-white bg-dark mb-3 border border-dark">
                                 <div class="card-header text-center">Current Electricity Spending</div>
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Electricity Usage</h5>
@@ -43,7 +43,7 @@
                         </div>
                         <!-- second card -->
                         <div class="col-md-6">
-                            <div class="card text-dark mb-3 shadow" style="background-color: #F3F3F4">
+                            <div class="card text-white bg-dark mb-3 border border-dark">
                                 <div class="card-header text-center">Current Heating Spending</div>
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Heating Usage</h5>
@@ -76,7 +76,7 @@
         var data1 = [
             {
                 domain: { x: [0, 1], y: [0, 1] },
-                value: {{__(Auth::energy_infos()->electricityUsage)}},
+                value: value: "{{ $electricityUsage }}",
                 title: { text: "Gauge 1" },
                 type: "indicator",
                 mode: "gauge+number",

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\energyInfo;
+use App\Models\EnergyInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,8 +13,8 @@ class EnergyInfoController extends Controller
      */
     public function index()
     {
-        $energyInfo = energyInfo::all();
-        return view('energyInfo.index', compact('energyInfo'));
+        $energyInfos = EnergyInfo::all();
+        return view('energy_infos.index', compact('energyInfos'));
     }
 
     /**

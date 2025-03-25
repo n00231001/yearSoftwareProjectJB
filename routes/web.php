@@ -2,15 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EnergyInfoController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -25,5 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::put('energyInfo/{energyInfo}', [EnergyInfoController::class, 'update'])->name('energyInfo.update');
     Route::delete('energyInfo/{energyInfo}', [EnergyInfoController::class, 'destroy'])->name('energyInfo.destroy');
 });
+
+Route::get('/energy_infos', [EnergyInfoController::class, 'index'])->name('energy_infos.index');
 
 require __DIR__.'/auth.php';
