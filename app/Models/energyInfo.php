@@ -9,7 +9,7 @@ class EnergyInfo extends Model
 {
     use HasFactory;
 
-    protected $table = 'energy_info'; // Ensure the correct table name is set
+    protected $table = 'energy_infos'; // Ensure the correct table name is set
 
     protected $fillable = [
         'electrictyUsage',

@@ -13,7 +13,9 @@ class DashboardController extends Controller
 
         $energyData = EnergyInfo::latest()->first();
 
-        $electricityUsage = $energyData->electrictyUsage;
+        if ($energyData && $energyData->electrictyUsage) {
+            $electricityUsage = $energyData->electrictyUsage;
+        }        
 
         return view('dashboard', compact('electricityUsage'));
     }

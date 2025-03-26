@@ -6,6 +6,8 @@
     </x-slot>
 
     <?php
+    
+
     $dataPoints = array( 
         array("y" => 3373.64, "label" => "Electricity spending" ),
         array("y" => 2435.94, "label" => "Oil spending" ),
@@ -62,7 +64,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
 
     <!-- Include Bootstrap CSS -->
@@ -76,7 +78,7 @@
         var data1 = [
             {
                 domain: { x: [0, 1], y: [0, 1] },
-                value: value: "{{ $electricityUsage }}",
+                value: "{{ $electricityUsage }}",
                 title: { text: "Gauge 1" },
                 type: "indicator",
                 mode: "gauge+number",
