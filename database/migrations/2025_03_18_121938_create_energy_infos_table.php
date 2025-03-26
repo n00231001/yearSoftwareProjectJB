@@ -17,6 +17,8 @@ class CreateEnergyInfosTable extends Migration
             $table->integer('electrictyUsage');
             $table->integer('oilUsage');
             $table->integer('gasUsage');
+            $table->integer('electricityConversion');
+            $table->integer('OilConversion');
             $table->timestamps();
         });
     }

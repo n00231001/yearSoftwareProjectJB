@@ -18,6 +18,7 @@
             <tr>
                 <td>{{ $info->id }}</td>
                 <td>{{ $info->electricityUsage }}</td>
+                <td>{{ $info->oilUsage }}</td>
                 <td>{{ $info->heatingUsage }}</td>
                 <td>{{ $info->created_at }}</td>
                 <td>{{ $info->updated_at }}</td>

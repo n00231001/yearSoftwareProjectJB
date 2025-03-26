@@ -38,7 +38,7 @@
                                 <div class="card-header text-center">Current Electricity Spending</div>
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Electricity Usage</h5>
-                                    <h1 class="card-title text-center">$300</h1>
+                                    <h1 class="card-title text-center">$ {{ $convertedElectricityUsage }}</h1>
                                     <img src="{{ asset('images/bolt-solid.svg') }}" width="80" alt="Electricity Usage Icon" class="mx-auto d-block">
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                 <div class="card-header text-center">Current Heating Spending</div>
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Heating Usage</h5>
-                                    <h1 class="card-title text-center">$500</h1>
+                                    <h1 class="card-title text-center">$ {{ $convertedOilUsage }}</h1>
                                     <img src="{{ asset('images/fire-solid.svg') }}" width="80" alt="Heating Usage Icon" class="mx-auto d-block">
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
         var data2 = [
             {
                 domain: { x: [0, 1], y: [0, 1] },
-                value: 300,
+                value: "{{ $oilUsage }}",
                 title: { text: "Gauge 2" },
                 type: "indicator",
                 mode: "gauge+number",

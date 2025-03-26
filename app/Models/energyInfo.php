@@ -25,5 +25,6 @@ class EnergyInfo extends Model
     public static function getEnergyInfo()
     {
         return $this->hasMany(electricityUsage::class);
+        return $this->hasMany(oilUsage::class);
     }
 }

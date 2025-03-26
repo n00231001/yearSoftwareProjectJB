@@ -12,6 +12,7 @@
                     <h3 class="font-semibold text-lg mb-4">artist Details</h3>
                     <x-artist-details
                      :electricityUsage="$energyInfo->electricity_usage"
+                     :oilUsage="$energyInfo->electricity_usage"
                      />
                 </div>
             </div>
