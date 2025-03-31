@@ -17,9 +17,10 @@ class CreateEnergyInfosTable extends Migration
             $table->integer('electricityUsage');
             $table->integer('oilUsage');
             $table->decimal('electricityConversion')->nullable();
-            $table->decimal('OilConversion')->nullable();
+            $table->decimal('oilConversion')->nullable();  // Changed to lowercase
             $table->integer('dayCreated')->nullable();
             $table->integer('monthCreated')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -30,7 +31,6 @@ class CreateEnergyInfosTable extends Migration
      */
     public function down()
     {
-        Schema::table('energy_infos', function (Blueprint $table) {
-            $table->dropColumn(['dayCreated', 'monthCreated']);
-        });
-}};
+        Schema::dropIfExists('energy_infos');  // Changed to drop the entire table
+    }
+}  // Removed the extra semicolon

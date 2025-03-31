@@ -16,13 +16,13 @@
     ?>
 
     <div class="py-12 bg-gray">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-10 rounded-lg" style="background-color: #e1e2e3; rounded-lg">
-            <div class="bg-gray overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-10 rounded-lg" style="background-color: #FBFAFA; rounded-lg shadow-lg: Large shadow">
+            <div class="bg-gray overflow-hidden shadow-lg sm:rounded-lg">
                 <div class="p-6 text-gray-900 bg-gray border: 4px solid black; padding: 10px; rounded-lg ">
                     {{ __("You're logged in!") }}
                     
                     <!-- Container for the gauges -->
-                    <div style="display: flex; justify-content: space-between; border: 4px solid black; padding: 10px; rounded-lg">
+                    <div style="display: flex; justify-content: space-between; shadow-lg: Large shadow">
                         <!-- First Gauge -->
                         <div id="myGaugeChart1" style="width:600px;height:400px;position:relative;"></div>
                         <!-- Second Gauge -->
@@ -134,7 +134,7 @@
                     sizex: 0.2,
                     sizey: 0.2,
                     xanchor: "center",
-                    yanchor: "middle"
+                    yanchor: "middle",
                 }
             ]
         };
@@ -150,7 +150,7 @@
                     text: "Spending this week"
                 },
                 axisX: {
-                    valueFormatString: "DD MMM,YY"
+                    valueFormatString: "DD MMM"
                 },
                 axisY: {
                     title: "spending",
@@ -166,32 +166,34 @@
                 },
                 data: [{
                     name: "EnergyUsage over the week",
+                    color: "#66D575",
                     type: "spline",
                     yValueFormatString: "",
                     showInLegend: true,
                     dataPoints: [
-                        { x: new Date(2014,6,24), y: {{ $electricityUsage[0] ?? 10}}},
-                        { x: new Date(2014,6,25), y: {{ $electricityUsage }}},
-                        { x: new Date(2014,6,26), y: 29 },
-                        { x: new Date(2014,6,27), y: 29 },
-                        { x: new Date(2014,6,28), y: 31 },
-                        { x: new Date(2014,6,29), y: 30 },
-                        { x: new Date(2014,6,30), y: 29 }
+                        { x: new Date( {{$dayCreated[0] ?? 1}},{{$monthCreated[0] ?? 1}}), y: {{ $electricityUsage[0] ?? 10}}},
+                        { x: new Date( {{$dayCreated[1] ?? 2}},{{$monthCreated[1] ?? 1}}), y: {{ $electricityUsage[1] ?? 15}}},
+                        { x: new Date( {{$dayCreated[2] ?? 3}},{{$monthCreated[2] ?? 1}}), y: {{ $electricityUsage[2] ?? 20}}},
+                        { x: new Date( {{$dayCreated[3] ?? 4}},{{$monthCreated[3] ?? 1}}), y: {{ $electricityUsage[3] ?? 25}}},
+                        { x: new Date( {{$dayCreated[4] ?? 5}},{{$monthCreated[4] ?? 1}}), y: {{ $electricityUsage[4] ?? 18}}},
+                        { x: new Date( {{$dayCreated[5] ?? 6}},{{$monthCreated[5] ?? 1}}), y: {{ $electricityUsage[5] ?? 15}}},
+                        { x: new Date( {{$dayCreated[6] ?? 7}},{{$monthCreated[6] ?? 1}}), y: {{ $electricityUsage[6] ?? 10}}}
                     ]
                 },
                 {
                     name: "heating usage over the week",
+                    color: "#FF7556",	
                     type: "spline",
                     yValueFormatString: "",
                     showInLegend: true,
                     dataPoints: [
-                        { x: new Date(2014, 6,24), y: 20 },
-                        { x: new Date(2014, 6,25), y: 20 },
-                        { x: new Date( 2014,6,26), y: 25 },
-                        { x: new Date(2014, 6,27), y: 25 },
-                        { x: new Date(2014, 6,28), y: 25 },
-                        { x: new Date(2014, 6,29), y: 25 },
-                        { x: new Date( 2014,6,30), y: 25 }
+                        { x: new Date( {{$dayCreated[0] ?? 1}},{{$monthCreated[0] ?? 1}}), y: {{ $oilUsage[0] ?? 5}}},
+                        { x: new Date( {{$dayCreated[1] ?? 2}},{{$monthCreated[1] ?? 1}}), y: {{ $oilUsage[1] ?? 15}}},
+                        { x: new Date( {{$dayCreated[2] ?? 3}},{{$monthCreated[2] ?? 1}}), y: {{ $oilUsage[2] ?? 30}}},
+                        { x: new Date( {{$dayCreated[3] ?? 4}},{{$monthCreated[3] ?? 1}}), y: {{ $oilUsage[3] ?? 25}}},
+                        { x: new Date( {{$dayCreated[4] ?? 5}},{{$monthCreated[4] ?? 1}}), y: {{ $oilUsage[4] ?? 10}}},
+                        { x: new Date( {{$dayCreated[5] ?? 6}},{{$monthCreated[5] ?? 1}}), y: {{ $oilUsage[5] ?? 15}}},
+                        { x: new Date( {{$dayCreated[6] ?? 7}},{{$monthCreated[6] ?? 1}}), y: {{ $oilUsage[6] ?? 10}}}
                     ]
                 },]
             });

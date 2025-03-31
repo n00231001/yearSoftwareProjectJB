@@ -15,8 +15,8 @@ class DashboardController extends Controller
 
         $electricityUsage = $energyInfo->electricityUsage ?? 0;
         $oilUsage = $energyInfo->oilUsage ?? 0;
-        $electricityConversion = $energyInfo->electricityConversion ?? 0;
-        $oilConversion = $energyInfo->oilConversion ?? 0;
+        $electricityConversion = $energyInfo->electricityConversion ?? 1.2;
+        $oilConversion = $energyInfo->oilConversion ?? 1.4;
         $dayCreated = $energyInfo->dayCreated ?? 01;
         $monthCreated = $energyInfo->monthCreated ?? 01;
 

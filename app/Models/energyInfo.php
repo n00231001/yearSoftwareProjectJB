@@ -14,7 +14,8 @@ class EnergyInfo extends Model
     protected $fillable = [
         'electricityUsage',
         'oilUsage',
-
+        'electricityConversion',
+        'oilConversion',
         'dayCreated',
         'monthCreated'
  

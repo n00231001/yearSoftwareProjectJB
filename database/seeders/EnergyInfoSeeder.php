@@ -16,7 +16,7 @@ class EnergyInfoSeeder extends Seeder
     {
         $currentTimeStamp = Carbon::now();
         EnergyInfo::insert([
-            ['property_id' => '1', 'electricityUsage' => 100, 'OilUsage' => 100, 'electricityConversion' => 1.2 , 'oilConversion' => 1.5, 'dayCreated' => 01, 'monthCreated' => 01],
+            ['id' => '1', 'electricityUsage' => 100, 'OilUsage' => 100, 'electricityConversion' => 1.2 , 'oilConversion' => 1.5, 'dayCreated' => 01, 'monthCreated' => 01],
         ]);
     }
 }

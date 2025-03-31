@@ -90,7 +90,7 @@
         @enderror
     </div>
 
-    <div>
+    <div class="bg-success">
         <x-primary-button>
             {{ isset($energyInfo) ? 'Update Energy Info' : 'Add Energy Info' }}
         </x-primary-button>
