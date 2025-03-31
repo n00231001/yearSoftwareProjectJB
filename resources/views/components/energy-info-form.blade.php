@@ -34,20 +34,6 @@
         @enderror
     </div>
 
-    <div class="mb-4">
-        <label for="gasUsage" class="block text-sm text-gray-700">Gas Usage</label>
-        <input
-            type="text"
-            name="gasUsage"
-            id="gasUsage"
-            value="{{ old('gasUsage', $energyInfo->gasUsage ?? '') }}"
-            required
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
-        @error('gasUsage')
-        <p class="text-sm text-red-600">{{ $message }}</p>
-        @enderror
-    </div>
-
     <div>
         <x-primary-button>
             {{ isset($energyInfo) ? 'Update Energy Info' : 'Add Energy Info' }}
