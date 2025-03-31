@@ -14,12 +14,12 @@ class CreateEnergyInfosTable extends Migration
     {
         Schema::create('energy_infos', function (Blueprint $table) {
             $table->id();
-            $table->integer('electrictyUsage');
+            $table->integer('electricityUsage');
             $table->integer('oilUsage');
-            $table->integer('gasUsage');
-            $table->integer('electricityConversion');
-            $table->integer('OilConversion');
-            $table->timestamps();
+            $table->decimal('electricityConversion')->nullable();
+            $table->decimal('OilConversion')->nullable();
+            $table->integer('dayCreated')->nullable();
+            $table->integer('monthCreated')->nullable();
         });
     }
 
@@ -30,6 +30,7 @@ class CreateEnergyInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('energy_infos');
-    }
-}
+        Schema::table('energy_infos', function (Blueprint $table) {
+            $table->dropColumn(['dayCreated', 'monthCreated']);
+        });
+}};

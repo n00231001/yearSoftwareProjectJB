@@ -17,6 +17,8 @@ class DashboardController extends Controller
         $oilUsage = $energyInfo->oilUsage ?? 0;
         $electricityConversion = $energyInfo->electricityConversion ?? 0;
         $oilConversion = $energyInfo->oilConversion ?? 0;
+        $dayCreated = $energyInfo->dayCreated ?? 01;
+        $monthCreated = $energyInfo->monthCreated ?? 01;
 
         $convertedElectricityUsage = $this->convertElectricityUsage($oilUsage, $electricityConversion);
         $convertedOilUsage = $this->convertOilUsage($oilUsage, $oilConversion);
@@ -27,17 +29,19 @@ class DashboardController extends Controller
             'electricityConversion', 
             'oilConversion',
             'convertedElectricityUsage', 
-            'convertedOilUsage'
+            'convertedOilUsage',
+            'dayCreated',
+            'monthCreated'
         ));
     }
 
-    private function convertElectricityUsage($oilUsage, $conversionFactor)
+    private function convertElectricityUsage($electricityUsage, $electricityConversion)
     {
-        return $oilUsage * $conversionFactor;
+        return $electricityUsage * $electricityConversion;
     }
 
-    private function convertOilUsage($oilUsage, $conversionFactor)
+    private function convertOilUsage($oilUsage, $oilConversion)
     {
-        return $oilUsage * $conversionFactor;
+        return $oilUsage * $oilConversion;
     }
 }

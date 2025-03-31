@@ -34,15 +34,21 @@ class EnergyInfoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'electrictyUsage' => 'required|integer',
+            'electricityUsage' => 'required|integer',
             'oilUsage' => 'required|integer',
-            'gasUsage' => 'required|integer'
+            'electricityConversion' => 'nullable|decimal:1,1',
+            'oilConversion' => 'nullable|decimal:1,1',
+            'dayCreated' => 'required|integer',
+            'monthCreated' => 'required|integer'
         ]);
 
         energyInfo::create([
-            'electrictyUsage' => $request->input('electrictyUsage'),
+            'electricityUsage' => $request->input('electricityUsage'),
             'oilUsage' => $request->input('oilUsage'),
-            'gasUsage' => $request->input('gasUsage')
+            'electricityConversion' => $request->input('electricityConversion', 1.2),
+            'oilConversion' => $request->input('oilConversion', 1.4),
+            'dayCreated' => $request->input('dayCreated'),
+            'monthCreated' => $request->input('monthCreated')
         ]);
 
         return redirect()->route('dashboard')->with('success', 'Data added successfully');

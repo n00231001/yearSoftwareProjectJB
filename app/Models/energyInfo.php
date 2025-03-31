@@ -12,9 +12,12 @@ class EnergyInfo extends Model
     protected $table = 'energy_infos'; // Ensure the correct table name is set
 
     protected $fillable = [
-        'electrictyUsage',
+        'electricityUsage',
         'oilUsage',
-        'gasUsage'
+
+        'dayCreated',
+        'monthCreated'
+ 
     ];
 
     /**

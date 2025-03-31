@@ -1,4 +1,4 @@
-@props(['property_id','electricityUsage','oilUsage', 'gasUsage', 'ElecConversion','oilConversion', 'gasConversion'])
+@props(['property_id','electricityUsage','oilUsage', 'electricityConversion','oilConversion', 'dayCreated', 'monthCreated']) 
 
 <div>
 <script>
