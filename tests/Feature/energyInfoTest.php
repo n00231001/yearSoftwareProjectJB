@@ -16,9 +16,12 @@ class energyInfoTest extends TestCase
      */
     public function test_energyInfo_can_be_submitted(): void
     {
+        // Create a user and authenticate them
         $user = User::factory()->create();
+        $this->actingAs($user);
 
-        $response = EnergyInfo::factory()->create([
+        // Simulate a POST request to create an EnergyInfo record
+        $response = $this->post('/energyInfo', [
             'electricityUsage' => 100,
             'oilUsage' => 100,
             'electricityConversion' => 1.2,
@@ -27,8 +30,18 @@ class energyInfoTest extends TestCase
             'monthCreated' => 1,
         ]);
 
-        //$this->assertAuthenticated();
-        $response->assertRedirect(route('/dashboard'));
+        // Assert that the response redirects to the dashboard route
+        $response->assertRedirect(route('dashboard'));
+
+        // Optionally, assert that the record was created in the database
+        $this->assertDatabaseHas('energy_infos', [
+            'electricityUsage' => 100,
+            'oilUsage' => 100,
+            'electricityConversion' => 1.2,
+            'oilConversion' => 1.5,
+            'dayCreated' => 1,
+            'monthCreated' => 1,
+        ]);
     }
 
     // public function test_energyInfo_can_be_created(): void
