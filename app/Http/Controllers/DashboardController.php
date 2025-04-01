@@ -20,7 +20,7 @@ class DashboardController extends Controller
         $dayCreated = $energyInfo->dayCreated ?? 01;
         $monthCreated = $energyInfo->monthCreated ?? 01;
 
-        $convertedElectricityUsage = $this->convertElectricityUsage($oilUsage, $electricityConversion);
+        $convertedElectricityUsage = $this->convertElectricityUsage($electricityUsage, $electricityConversion);
         $convertedOilUsage = $this->convertOilUsage($oilUsage, $oilConversion);
 
         return view('dashboard', compact(

@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
             'user_id' => '1',
             'email' => 'JohnDoe@' . time() . '@example.com',
             'password' => Hash::make('password'),
-            'property_id' => '1',
         ]);
     }
 }
