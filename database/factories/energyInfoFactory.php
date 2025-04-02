@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\EnergyInfo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use illuminate\Support\Facades\Storage;
 
