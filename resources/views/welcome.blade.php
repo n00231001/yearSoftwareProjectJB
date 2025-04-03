@@ -57,7 +57,7 @@
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row justify-center items-center">
                 <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
                     <!-- home icon -->
-                    <img src="{{ asset('images/dashboardIcon.png') }}" width="80" alt="description of myimage" class="mx-auto">
+                    <img src="{{ asset('images/homeIcon.png') }}" width="80" alt="description of myimage" class="mx-auto">
                     <!-- email -->
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
