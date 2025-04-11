@@ -5,36 +5,27 @@
         </h2>
     </x-slot>
 
-    <?php
-    
-
-    $dataPoints = array( 
-        array("y" => 3373.64, "label" => "Electricity spending" ),
-        array("y" => 2435.94, "label" => "Oil spending" ),
-        array("y" => 2435.94, "label" => "Gas spending" )
-    );
-    ?>
-
     <div class="py-12 bg-gray">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-10 rounded-lg" style="background-color: #FBFAFA; rounded-lg shadow-lg: Large shadow">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-10 rounded-lg" style="background-color:rgb(231, 231, 231); rounded-lg shadow-lg: Large shadow">
             <div class="bg-gray overflow-hidden shadow-lg sm:rounded-lg">
-                <div class="p-6 text-gray-900 bg-gray border: 4px solid black; padding: 10px; rounded-lg ">
+                <div class="p-6 text-gray-900 bg-gray border: 4px solid black; padding: 10px; rounded-lg " style ="background-color:rgb(231, 231, 231); rounded-lg shadow-lg: Large shadow">
                     {{ __("You're logged in!") }}
                     
                     <!-- Container for the gauges -->
-                    <div style="display: flex; justify-content: space-between; shadow-lg: Large shadow">
+                    <div style="display: flex; justify-content: space-between; background-color: rgb(243, 243, 243);" class = " rounded-lg shadow-lg">
                         <!-- First Gauge -->
                         <div id="myGaugeChart1" style="width:600px;height:400px;position:relative;"></div>
                         <!-- Second Gauge -->
                         <div id="myGaugeChart2" style="width:600px;height:400px;position:relative;"></div>
                     </div>
                     <br>
+                    <br>
                     <!-- Bootstrap row for cards -->
                     <div class="row bg-gray border-primary rounded-lg">
                         <br>
                         <!-- first card -->
                         <div class="col-md-6">
-                            <div class="card text-white bg-dark mb-3 border border-dark">
+                            <div class="card text-white bg-dark mb-3 border border-dark rounded-lg shadow-lg: Large shadow" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
                                 <div class="card-header text-center">Current Electricity Spending</div>
                                 <div class="card-body">
                                     <h5 class="card-title text-center">Electricity Usage</h5>
@@ -45,7 +36,7 @@
                         </div>
                         <!-- second card -->
                         <div class="col-md-6">
-                            <div class="card text-white bg-dark mb-3 border border-dark">
+                            <div class="card text-white bg-dark mb-3 border border-dark" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
                                 <div class="card-header text-center">Current Heating Spending</div>
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Heating Usage</h5>
@@ -55,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <br>
                     <!-- Add a div for the CanvasJS column chart -->
                     <div class="p-6 text-gray-900 bg-gray border: 4px solid black; padding: 10px; rounded-lg ">
                         <h2>Previous Spending</h2>
@@ -79,7 +70,7 @@
             {
                 domain: { x: [0, 1], y: [0, 1] },
                 value: "{{ $electricityUsage }}",
-                title: { text: "Gauge 1" },
+                title: { text: "current electricity usage" },
                 type: "indicator",
                 mode: "gauge+number",
                 delta: { reference: 400 },
@@ -113,7 +104,7 @@
             {
                 domain: { x: [0, 1], y: [0, 1] },
                 value: "{{ $oilUsage }}",
-                title: { text: "Gauge 2" },
+                title: { text: "current heating usage" },
                 type: "indicator",
                 mode: "gauge+number",
                 delta: { reference: 400 },
